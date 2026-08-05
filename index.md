@@ -71,7 +71,7 @@ client = OpenAI(
 )
 
 response = client.chat.completions.create(
-    model="deepseek-v4-pro",
+    model="deepseek-v4-pro",# Can be replaced with any supported model ID (e.g., qwen-vl-plus, deepseek-v4-flash, etc.)
     messages=[
         {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": "Hello!"}
@@ -91,7 +91,7 @@ const openai = new OpenAI({
 async function main() {
   const completion = await openai.chat.completions.create({
     messages: [{ role: "user", content: "Hello!" }],
-    model: "deepseek-v4-pro",
+    model: "deepseek-v4-pro",# Can be replaced with any supported model ID (e.g., qwen-vl-plus, deepseek-v4-flash, etc.)
   });
 
   console.log(completion.choices[0].message.content);
@@ -104,7 +104,7 @@ curl https://apinexusdev.com/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer sk-your-api-key" \
   -d '{
-    "model": "deepseek-v4-pro",
+    "model": "deepseek-v4-pro",# Can be replaced with any supported model ID (e.g., qwen-vl-plus, deepseek-v4-flash, etc.)
     "messages": [
       {
         "role": "user",
