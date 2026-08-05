@@ -28,7 +28,7 @@ strongly recommend using **Cherry Studio** for the best experience. for a seamle
 :::
 
 ### 1. Manual Configuration
-1. Download and install [Cherry Studio](https://cherry-ai.com) on your device.
+1. Download and install [Cherry Studio](https://cherry-ai.com) on your device
 2. Open Settings $\rightarrow$ Model Provider $\rightarrow$ Click Choose
   * **Provider Name**: `PineNexus`
   * **API Host**: `https://apinexusdev.com`
@@ -48,9 +48,9 @@ strongly recommend using **Cherry Studio** for the best experience. for a seamle
 > If you are integrating the API into your own code, software applications, or automated scripts, please refer to the endpoint and code examples below.
 >
 
-## Quick Start {#quick-start}
+### Quick Start {#quick-start}
 
-### 1. Base URL
+#### 1. Base URL
 Set your API client's Base URL to:
 
 `https://apinexusdev.com/v1`
