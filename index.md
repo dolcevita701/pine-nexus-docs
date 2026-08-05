@@ -23,9 +23,9 @@ features:
 ---
 ---
 ## Application Configuration Guide (for non-technical users)
-Please refer to this section for quick setup.
-## Desktop Client Integration (Cherry Studio)
-We recommend using **Cherry Studio** for a seamless desktop experience with full text, code, image, and vision model support.
+::: tip 💡 Recommended Client
+strongly recommend using **Cherry Studio** for the best experience. for a seamless desktop experience with full text, code, image, and vision model support. （Follow the steps below to complete setup in under a minute.）
+:::
 
 ### 1. Manual Configuration
 1. Download and install [Cherry Studio](https://cherry-ai.com) on your device.
