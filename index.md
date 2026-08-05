@@ -14,8 +14,8 @@ hero:
       link: "#code-examples"
 
 features:
-  - title: OpenAI Compatible
-    details: Fully compliant with OpenAI standard API format. Drop-in replacement for existing software and SDKs.
+  - title: OpenAI Standard Compatible
+    details: Fully compliant with OpenAI API standards. Seamlessly integrates diverse mainstream models as a drop-in replacement for existing software and SDKs.
   - title: Ultra-Low Latency
     details: Optimally routed proxy network designed for stable response times and high availability.
   - title: Transparent Pricing
