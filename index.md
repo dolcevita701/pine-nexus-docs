@@ -21,30 +21,14 @@ features:
   - title: Transparent Pricing
     details: Pay-as-you-go billing with real-time balance tracking and granular API Key token controls.
 ---
-
-## Quick Start {#quick-start}
-
-### 1. Base URL
-Set your API client's Base URL to:
-
-`https://apinexusdev.com/v1`
-
-> **Note:** Always ensure your endpoint includes the `/v1` suffix when configuring clients.
-
-### 2. Authentication
-All API requests require a Bearer Token. Generate your API key from your Dashboard, then include it in your HTTP Request Header:
-
-`Authorization: Bearer YOUR_API_KEY`
-
 ---
-
+## Application Configuration Guide (for non-technical users)
+Please refer to this section for quick setup.
 ## Desktop Client Integration (Cherry Studio)
-
 We recommend using **Cherry Studio** for a seamless desktop experience with full text, code, image, and vision model support.
 
 ### 1. Manual Configuration
-Download and install [Cherry Studio](https://cherry-ai.com) on your device.
-1. Download and install Cherry Studio.
+1. Download and install [Cherry Studio](https://cherry-ai.com) on your device.
 2. Open Settings $\rightarrow$ Model Provider $\rightarrow$ Click Choose
   * **Provider Name**: `PineNexus`
   * **API Host**: `https://apinexusdev.com`
@@ -60,8 +44,24 @@ Download and install [Cherry Studio](https://cherry-ai.com) on your device.
 | `Tongyi-MAI/Z-Image-Turbo` | Image Generation | Fast text-to-image |
 | `Llama-3.3-70B-Instruct-Turbo` | General AI | Open-source ecosystem tasks |
 
-## Code Examples {#code-examples}
+## Developer API Reference (For Engineers & Developers)
+> If you are integrating the API into your own code, software applications, or automated scripts, please refer to the endpoint and code examples below.
+>
 
+## Quick Start {#quick-start}
+
+### 1. Base URL
+Set your API client's Base URL to:
+
+`https://apinexusdev.com/v1`
+
+> **Note:** Always ensure your endpoint includes the `/v1` suffix when configuring clients.
+
+### 2. Authentication
+All API requests require a Bearer Token. Generate your API key from your Dashboard, then include it in your HTTP Request Header:
+
+`Authorization: Bearer YOUR_API_KEY`
+## Code Examples {#code-examples}
 ```python
 from openai import OpenAI
 
