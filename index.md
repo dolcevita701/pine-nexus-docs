@@ -50,6 +50,7 @@ Copy the link below, paste it into your browser's address bar, and press **Enter
 
 ```text
 cherrystudio://provider/add?type=openai&name=PineNexus&api_host=https%3A%2F%2Fapinexusdev.com
+```
 Click Open Cherry Studio in the browser prompt. PineNexus will be added automatically—just enter your API Key to start using it.
 
 ### Manual Configuration
