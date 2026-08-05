@@ -42,12 +42,16 @@ All API requests require a Bearer Token. Generate your API key from your Dashboa
 
 We recommend using **Cherry Studio** for a seamless desktop experience with full text, code, image, and vision model support.
 
-### One-Click Quick Connect (DeepLink)
-Click the link below to automatically import the configuration into Cherry Studio:
+### 1. Prerequisites
+Download and install [Cherry Studio](https://cherry-ai.com) on your device.
+
+### 2. One-Click Quick Connect (DeepLink)
+Copy the link below, paste it into your browser's address bar, and press **Enter**:
 
 ```text
 cherrystudio://provider/add?type=openai&name=PineNexus&api_host=https%3A%2F%2Fapinexusdev.com
-```
+Click Open Cherry Studio in the browser prompt. PineNexus will be added automatically—just enter your API Key to start using it.
+
 ### Manual Configuration
 1. Download and install Cherry Studio.
 2. Open Settings $\rightarrow$ Model Provider $\rightarrow$ Click + Add.
