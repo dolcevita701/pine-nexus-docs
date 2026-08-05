@@ -38,6 +38,35 @@ All API requests require a Bearer Token. Generate your API key from your Dashboa
 
 ---
 
+## Desktop Client Integration (Cherry Studio)
+
+We recommend using **Cherry Studio** for a seamless desktop experience with full text, code, image, and vision model support.
+
+### One-Click Quick Connect (DeepLink)
+Click the link below to automatically import the configuration into Cherry Studio:
+
+```text
+cherrystudio://provider/add?type=openai&name=PineNexus&api_host=https%3A%2F%2Fapinexusdev.com
+```
+### Manual Configuration
+1. Download and install Cherry Studio.
+2. Open Settings $\rightarrow$ Model Provider $\rightarrow$ Click + Add.
+3. Choose OpenAI (or Custom Provider) and set:
+   
+  * **Provider Name**: `PineNexus`
+  * **API Host**: `https://apinexusdev.com`
+  * **API Key**: `YOUR_API_KEY`
+4. Check to load models and start using them immediately.
+
+## Supported Models
+| Model Name | Category | Primary Use Cases |
+| :--- | :--- | :--- |
+| `deepseek-v4-flash` | Text / Code | Ultra-fast responses |
+| `deepseek-v4-pro` | Reasoning | Complex logic, long-context |
+| `qwen-vl-plus` | Vision | Multimodal image understanding |
+| `Tongyi-MAI/Z-Image-Turbo` | Image Generation | Fast text-to-image |
+| `Llama-3.3-70B-Instruct-Turbo` | General AI | Open-source ecosystem tasks |
+
 ## Code Examples {#code-examples}
 
 ```python
