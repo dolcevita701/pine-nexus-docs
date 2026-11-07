@@ -1,49 +1,89 @@
----
-outline: deep
----
+# API examples
 
-# Runtime API Examples
+Endpoint: `POST https://apinexusdev.com/v1/chat/completions`
 
-This page demonstrates usage of some of the runtime APIs provided by VitePress.
+Header: `Authorization: Bearer YOUR_API_KEY`
 
-The main `useData()` API can be used to access site, theme, and page data for the current page. It works in both `.md` and `.vue` files:
+Replace `sk-your-api-key` with a key from the [dashboard](https://apinexusdev.com). Replace the model string with any ID from the [supported models](/#supported-models) list. The samples below use `deepseek-v4-pro`. The same call works with `deepseek-v4-flash`, `qwen3.8-max`, `kimi-k3`, `kimi-k3.1-pro`, `glm-4.5`, and the other published IDs.
 
-```md
-<script setup>
-import { useData } from 'vitepress'
+## Python
 
-const { theme, page, frontmatter } = useData()
-</script>
+```python
+from openai import OpenAI
 
-## Results
+client = OpenAI(
+    base_url="https://apinexusdev.com/v1",
+    api_key="sk-your-api-key",
+)
 
-### Theme Data
-<pre>{{ theme }}</pre>
+response = client.chat.completions.create(
+    model="deepseek-v4-pro",
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Hello!"},
+    ],
+)
 
-### Page Data
-<pre>{{ page }}</pre>
-
-### Page Frontmatter
-<pre>{{ frontmatter }}</pre>
+print(response.choices[0].message.content)
 ```
 
-<script setup>
-import { useData } from 'vitepress'
+## JavaScript
 
-const { site, theme, page, frontmatter } = useData()
-</script>
+```javascript
+import OpenAI from "openai";
 
-## Results
+const openai = new OpenAI({
+  baseURL: "https://apinexusdev.com/v1",
+  apiKey: "sk-your-api-key",
+});
 
-### Theme Data
-<pre>{{ theme }}</pre>
+const completion = await openai.chat.completions.create({
+  model: "deepseek-v4-pro",
+  messages: [{ role: "user", content: "Hello!" }],
+});
 
-### Page Data
-<pre>{{ page }}</pre>
+console.log(completion.choices[0].message.content);
+```
 
-### Page Frontmatter
-<pre>{{ frontmatter }}</pre>
+## curl
 
-## More
+```bash
+curl https://apinexusdev.com/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer sk-your-api-key" \
+  -d '{
+    "model": "deepseek-v4-pro",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Hello!"
+      }
+    ]
+  }'
+```
 
-Check out the documentation for the [full list of runtime APIs](https://vitepress.dev/reference/runtime-api#usedata).
+## Vision
+
+`glm-4.5v` is the vision model on the model square. Send it through the same chat endpoint with an OpenAI-style image content block.
+
+```python
+response = client.chat.completions.create(
+    model="glm-4.5v",
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {"type": "text", "text": "Describe this image."},
+                {
+                    "type": "image_url",
+                    "image_url": {"url": "https://example.com/image.png"},
+                },
+            ],
+        }
+    ],
+)
+
+print(response.choices[0].message.content)
+```
+
+Image generation IDs currently on the model square are `z-image-turbo` and `qwen-Image`. Embedding and rerank IDs are `bge-m3` and `bge-reranker-v2-m3`.

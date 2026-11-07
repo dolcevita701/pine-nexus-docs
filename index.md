@@ -2,114 +2,160 @@
 layout: home
 
 hero:
-  name: "API Documentation"
-  text: "High-Performance AI API Infrastructure"
-  tagline: Enterprise-grade access to global top-tier AI models with high concurrency and reliability.
+  name: "PineNexus"
+  text: "Chinese AI models for overseas developers"
+  tagline: "One OpenAI-compatible API for DeepSeek, Qwen, Kimi, and GLM. Stripe top-up. One API key."
   actions:
     - theme: brand
-      text: Get Started Guide
+      text: Quick start
       link: "#quick-start"
     - theme: alt
-      text: API Reference
-      link: "#code-examples"
+      text: Supported models
+      link: "#supported-models"
+    - theme: alt
+      text: Open dashboard
+      link: https://apinexusdev.com
 
 features:
-  - title: OpenAI Standard Compatible
-    details: Fully compliant with OpenAI API standards. Seamlessly integrates diverse mainstream models as a drop-in replacement for existing software and SDKs.
-  - title: Ultra-Low Latency
-    details: Optimally routed proxy network designed for stable response times and high availability.
-  - title: Transparent Pricing
-    details: Pay-as-you-go billing with real-time balance tracking and granular API Key token controls.
+  - title: Chinese models, one key
+    details: Call DeepSeek, Qwen, Kimi, GLM, and Doubao with model IDs. The same key works across the catalog.
+  - title: Stripe top-up
+    details: Add balance with Stripe. Pay only for the tokens you use. There is no monthly fee.
+  - title: OpenAI-compatible /v1
+    details: Base URL https://apinexusdev.com/v1. Authenticate with a Bearer API key from the dashboard.
 ---
----
-## Application Configuration Guide (for non-technical users)
-::: tip 💡 Recommended Client
-strongly recommend using **Cherry Studio** for the best experience. for a seamless desktop experience with full text, code, image, and vision model support. （Follow the steps below to complete setup in under a minute.）
-:::
 
-### 1. Manual Configuration
-1. Download and install [Cherry Studio](https://cherry-ai.com) on your device
-2. Open Settings $\rightarrow$ Model Provider $\rightarrow$ Click Choose
-  * **Provider Name**: `PineNexus`
-  * **API Host**: `https://apinexusdev.com`
-  * **API Key**: `YOUR_API_KEY`
-4. Check to load models and start using them immediately.
+PineNexus is an OpenAI-compatible API gateway for overseas developers who want Chinese models without a separate account at each provider. DeepSeek, Qwen, Kimi, GLM, and Doubao are exposed as model IDs on one endpoint. Requests are served from the enabled upstreams (DeepSeek, SiliconFlow, Aliyun Qwen, Volcano Ark, Moonshot, and Zhipu). You send a model ID, not a channel name.
 
-## Supported Models
-| Model Name | Category | Primary Use Cases |
-| :--- | :--- | :--- |
-| `deepseek-v4-flash` | Text / Code | Ultra-fast responses |
-| `deepseek-v4-pro` | Reasoning | Complex logic, long-context |
-| `qwen-vl-plus` | Vision | Multimodal image understanding |
-| `Tongyi-MAI/Z-Image-Turbo` | Image Generation | Fast text-to-image |
-| `Llama-3.3-70B-Instruct-Turbo` | General AI | Open-source ecosystem tasks |
+## Quick start {#quick-start}
 
-## Developer API Reference (For Engineers & Developers)
-> If you are integrating the API into your own code, software applications, or automated scripts, please refer to the endpoint and code examples below.
->
+### 1. API key and balance
 
-### Quick Start {#quick-start}
+Sign in at [apinexusdev.com](https://apinexusdev.com). Top up with Stripe in the dashboard, then create an API key. Send that key as a Bearer token. Do not put the key in client-side code that ships to a browser.
 
-#### 1. Base URL
-Set your API client's Base URL to:
+### 2. Base URL
+
+OpenAI SDKs, Cursor, and any client that asks for an OpenAI base URL:
 
 `https://apinexusdev.com/v1`
 
-> **Note:** Always ensure your endpoint includes the `/v1` suffix when configuring clients.
+Cherry Studio asks for an API host and adds the API path itself. Use:
 
-### 2. Authentication
-All API requests require a Bearer Token. Generate your API key from your Dashboard, then include it in your HTTP Request Header:
+`https://apinexusdev.com`
 
-`Authorization: Bearer YOUR_API_KEY`
-## Code Examples {#code-examples}
+### 3. Authentication
+
+```http
+Authorization: Bearer YOUR_API_KEY
+```
+
+Chat requests go to `POST https://apinexusdev.com/v1/chat/completions`.
+
+Client walkthroughs: [Cherry Studio, Cursor, and the OpenAI SDK](/clients). Copy-paste calls: [API examples](/api-examples).
+
+## Client setup
+
+### Cherry Studio
+
+1. Install [Cherry Studio](https://cherry-ai.com).
+2. Open **Settings → Model Provider** and add an OpenAI-compatible provider.
+3. Fill in:
+   - **Provider name:** `PineNexus`
+   - **API host:** `https://apinexusdev.com`
+   - **API key:** the key from the PineNexus dashboard
+4. Check the connection, fetch the model list, and start a chat with a model ID from the table below (for example `deepseek-v4-pro` or `kimi-k3`).
+
+Cursor and SDK settings are on the [client setup](/clients) page.
+
+## Supported models {#supported-models}
+
+Model IDs below are the ones published on the [PineNexus model square](https://apinexusdev.com/pricing). Pass the string exactly as shown, including capitalization (`qwen-Image`, `Doubao-pro-32k`). Rates and availability can change; the model square is the source of truth.
+
+Chat, reasoning, code, and vision models use `POST /v1/chat/completions`. Image IDs (`z-image-turbo`, `qwen-Image`) and retrieval IDs (`bge-m3`, `bge-reranker-v2-m3`) are enabled on the same account and base URL.
+
+### DeepSeek
+
+| Model ID | Category | Notes |
+| :--- | :--- | :--- |
+| `deepseek-v4-flash` | Text / code | DeepSeek V4, faster option |
+| `deepseek-v4-pro` | Reasoning / code | DeepSeek V4 for harder reasoning and longer tasks |
+| `deepseek-r1` | Reasoning | DeepSeek reasoning model |
+
+### Qwen (Alibaba)
+
+| Model ID | Category | Notes |
+| :--- | :--- | :--- |
+| `qwen3.8-max` | Text | Qwen3.8 Max |
+| `qwen2.5-72b` | Text / code | Qwen2.5 72B |
+| `qwen2.5-32b` | Text / code | Qwen2.5 32B |
+| `qwen2.5-7b` | Text | Qwen2.5 7B |
+| `qwen-Image` | Image | Text-to-image. The ID is case-sensitive |
+
+### Kimi (Moonshot)
+
+| Model ID | Category | Notes |
+| :--- | :--- | :--- |
+| `kimi-k3` | Text | Kimi K3 |
+| `kimi-k3.1-pro` | Text | Kimi K3.1 Pro |
+| `kimi-k2.7-code` | Code | Long-context code model (262K on the product homepage) |
+
+### Zhipu GLM
+
+| Model ID | Category | Notes |
+| :--- | :--- | :--- |
+| `glm-4.5` | Text | GLM-4.5 chat |
+| `glm-4.5-air` | Text | GLM-4.5 Air |
+| `glm-4.5v` | Vision | Multimodal image understanding |
+| `glm-4.6` | Text | GLM-4.6 chat |
+| `glm-4.7` | Text | GLM-4.7 chat |
+| `glm-5` | Text | GLM-5 chat |
+| `glm-5-turbo` | Text | GLM-5 Turbo |
+| `glm-5.1` | Text | GLM-5.1 chat |
+| `glm-5.2` | Text | GLM-5.2 chat |
+| `glm-5.3` | Text | GLM-5.3 chat |
+| `glm-5.3-flash` | Text | GLM-5.3 Flash |
+| `glm-5.3-flashx` | Text | GLM-5.3 FlashX |
+| `glm-5.3-flashx-legal` | Text | GLM-5.3 FlashX legal variant |
+
+### Doubao (Volcano Ark)
+
+| Model ID | Category | Notes |
+| :--- | :--- | :--- |
+| `Doubao-lite-32k` | Text | Doubao lite. The ID is case-sensitive |
+| `Doubao-pro-32k` | Text | Doubao pro. The ID is case-sensitive |
+| `doubao-seed-1-6-250615` | Text | Doubao Seed |
+
+### Image and retrieval
+
+| Model ID | Category | Notes |
+| :--- | :--- | :--- |
+| `z-image-turbo` | Image | Fast text-to-image |
+| `bge-m3` | Embeddings | Embedding model |
+| `bge-reranker-v2-m3` | Rerank | Reranking model |
+
+## Code example {#code-examples}
+
 ```python
 from openai import OpenAI
 
 client = OpenAI(
     base_url="https://apinexusdev.com/v1",
-    api_key="sk-your-api-key"
+    api_key="sk-your-api-key",
 )
 
 response = client.chat.completions.create(
-    model="deepseek-v4-pro",# Can be replaced with any supported model ID (e.g., qwen-vl-plus, deepseek-v4-flash, etc.)
+    model="deepseek-v4-pro",  # or deepseek-v4-flash, qwen3.8-max, kimi-k3, glm-4.5, ...
     messages=[
         {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": "Hello!"}
-    ]
+        {"role": "user", "content": "Hello!"},
+    ],
 )
 
 print(response.choices[0].message.content)
 ```
-```javascript
-import OpenAI from "openai";
 
-const openai = new OpenAI({
-  baseURL: "https://apinexusdev.com/v1",
-  apiKey: "sk-your-api-key",
-});
+JavaScript, curl, and a `glm-4.5v` vision call are on the [API examples](/api-examples) page.
 
-async function main() {
-  const completion = await openai.chat.completions.create({
-    messages: [{ role: "user", content: "Hello!" }],
-    model: "deepseek-v4-pro",# Can be replaced with any supported model ID (e.g., qwen-vl-plus, deepseek-v4-flash, etc.)
-  });
+## Billing
 
-  console.log(completion.choices[0].message.content);
-}
-
-main();
-```
-```bash
-curl https://apinexusdev.com/v1/chat/completions \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer sk-your-api-key" \
-  -d '{
-    "model": "deepseek-v4-pro",# Can be replaced with any supported model ID (e.g., qwen-vl-plus, deepseek-v4-flash, etc.)
-    "messages": [
-      {
-        "role": "user",
-        "content": "Hello!"
-      }
-    ]
-  }'
-```
+Top up in the [dashboard](https://apinexusdev.com) with Stripe. Usage is deducted from that balance. Per-model rates are listed on the [model square](https://apinexusdev.com/pricing).
