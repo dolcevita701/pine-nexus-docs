@@ -13,6 +13,8 @@ export default defineConfig({
       { text: 'Models', link: '/#supported-models' },
       { text: 'Clients', link: '/clients' },
       { text: 'API Examples', link: '/api-examples' },
+      { text: 'Billing', link: '/billing' },
+      { text: 'Model pricing', link: 'https://apinexusdev.com/pricing' },
       { text: 'Dashboard', link: 'https://apinexusdev.com' }
     ],
 
@@ -23,7 +25,9 @@ export default defineConfig({
           { text: 'Overview', link: '/' },
           { text: 'Supported models', link: '/#supported-models' },
           { text: 'Client setup', link: '/clients' },
-          { text: 'API examples', link: '/api-examples' }
+          { text: 'API examples', link: '/api-examples' },
+          { text: 'Billing', link: '/billing' },
+          { text: 'Model pricing', link: 'https://apinexusdev.com/pricing' }
         ]
       }
     ],

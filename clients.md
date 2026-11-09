@@ -1,13 +1,15 @@
 # Client setup
 
-PineNexus speaks the OpenAI chat API. Create an API key in the [dashboard](https://apinexusdev.com), then point the client at PineNexus and choose a [supported model ID](/#supported-models).
+PineNexus is an OpenAI-compatible gateway. The same dashboard API key works for chat, reasoning, code, vision, image generation, embeddings, and rerank — not chat alone. Sign in, top up with Stripe, create a key in **Tokens**, then point your client at PineNexus and choose a [supported model ID](/#supported-models).
 
 | Client | What to set | Value |
 | :--- | :--- | :--- |
 | OpenAI SDK, Cursor, most API clients | Base URL | `https://apinexusdev.com/v1` |
 | Cherry Studio | API host | `https://apinexusdev.com` |
-| Any client | API key | Bearer key from the dashboard |
+| Any client | API key | Bearer key from **Tokens** in the dashboard |
 | Any client | Model | A model ID from the catalog, such as `deepseek-v4-pro` |
+
+Copy-paste HTTP samples, including image, embeddings, rerank, and streaming, are on the [API examples](/api-examples) page.
 
 ## Cherry Studio
 
@@ -23,12 +25,14 @@ Leave `/v1` off the Cherry Studio host. Cherry Studio appends the chat path itse
 
 ## Cursor
 
-1. Open **Cursor Settings → Models**.
-2. Paste your PineNexus API key into the OpenAI API key field.
-3. Enable **Override OpenAI Base URL** and set it to `https://apinexusdev.com/v1`.
-4. Add the model ID you want to call, for example `deepseek-v4-pro` or `kimi-k2.7-code`.
+These steps match the current Cursor **Settings → Models → API Keys** fields used to point chat at an OpenAI-compatible base URL.
 
-Cursor will send chat requests to PineNexus with that key. The model name must be one of the IDs on the [supported models](/#supported-models) list.
+1. Open Cursor Settings (`Cmd+Shift+J` on macOS, `Ctrl+Shift+J` on Windows/Linux), go to **Models**, and expand **API Keys**.
+2. Paste your PineNexus API key into the **OpenAI API Key** field and enable **Use OpenAI API Key**.
+3. Enable **Override OpenAI Base URL** and set it to `https://apinexusdev.com/v1`. Include `/v1`, and do not append `/chat/completions`.
+4. Use **Add or search model** to add the exact PineNexus model ID, for example `deepseek-v4-pro` or `kimi-k2.7-code`. Enable the model and select it in the chat model picker.
+
+The override applies to OpenAI-format Chat and Agent requests. Cursor Tab, Auto, and cloud or background agents stay on Cursor's own backend and do not use this base URL. The model name Cursor sends must be one of the IDs on the [supported models](/#supported-models) list.
 
 ## OpenAI SDK
 
