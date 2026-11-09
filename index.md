@@ -58,9 +58,9 @@ Client walkthroughs: [Cherry Studio, Cursor, and the OpenAI SDK](/clients). Copy
 
 ## Supported models {#supported-models}
 
-Model IDs below are the ones published on the [PineNexus model square](https://apinexusdev.com/pricing). Pass the string exactly as shown, including capitalization (`qwen-Image`, `Doubao-pro-32k`). Rates and availability can change; the model square is the source of truth.
+PineNexus offers Chinese models through one OpenAI-compatible API. Pass a model ID on `https://apinexusdev.com/v1`. The full live catalog and current prices are on the [model square](https://apinexusdev.com/pricing).
 
-Chat, reasoning, code, and vision models use `POST /v1/chat/completions`. Image models (`z-image-turbo`, `qwen-Image`) use `POST /v1/images/generations`. Embeddings (`bge-m3`) use `POST /v1/embeddings`. Rerank (`bge-reranker-v2-m3`) uses `POST /v1/rerank`.
+The IDs below are examples. Chat, reasoning, code, and vision models use `POST /v1/chat/completions`. Image models use `POST /v1/images/generations`. Embeddings use `POST /v1/embeddings`. Rerank uses `POST /v1/rerank`.
 
 ### What to pick
 
@@ -70,65 +70,16 @@ Chat, reasoning, code, and vision models use `POST /v1/chat/completions`. Image 
 - **Vision:** `glm-4.5v`
 - **Embeddings and rerank:** `bge-m3` and `bge-reranker-v2-m3`
 
-### DeepSeek
-
-| Model ID | Category | Notes |
-| :--- | :--- | :--- |
-| `deepseek-v4-flash` | Text / code | Fast, lower-cost DeepSeek chat for everyday use. |
-| `deepseek-v4-pro` | Reasoning / code | Higher-quality DeepSeek chat for complex production work. |
-| `deepseek-r1` | Reasoning | Strong reasoning model for hard problems and step-by-step tasks. |
-
-### Qwen
-
-| Model ID | Category | Notes |
-| :--- | :--- | :--- |
-| `qwen3.8-max` | Text | Top-tier Qwen chat for hard tasks. |
-| `qwen2.5-72b` | Text / code | Large Qwen chat for higher quality. |
-| `qwen2.5-32b` | Text / code | Mid-size Qwen chat, balance of quality and price. |
-| `qwen2.5-7b` | Text | Compact Qwen chat, low cost. |
-| `qwen-Image` | Image | Qwen image generation model. |
-
-### Kimi
-
-| Model ID | Category | Notes |
-| :--- | :--- | :--- |
-| `kimi-k3` | Text | General Kimi chat with long-context strength. |
-| `kimi-k3.1-pro` | Text | Higher-tier Kimi for complex chat and analysis. |
-| `kimi-k2.7-code` | Code | Kimi model oriented to coding tasks. The product homepage lists a 262K context window. |
-
-### GLM
-
-| Model ID | Category | Notes |
-| :--- | :--- | :--- |
-| `glm-4.5` | Text | General-purpose GLM chat model. |
-| `glm-4.5-air` | Text | Lighter, cheaper GLM 4.5 for high-volume calls. |
-| `glm-4.5v` | Vision | GLM multimodal model for image + text. |
-| `glm-4.6` | Text | Balanced GLM chat for daily apps. |
-| `glm-4.7` | Text | Newer GLM chat with stronger overall quality. |
-| `glm-5` | Text | Flagship GLM chat for demanding tasks. |
-| `glm-5-turbo` | Text | Faster GLM-5 variant for lower latency. |
-| `glm-5.1` | Text | Updated GLM-5 line for general chat. |
-| `glm-5.2` | Text | Next GLM-5 iteration for general production use. |
-| `glm-5.3` | Text | Latest mainline GLM chat model. |
-| `glm-5.3-flash` | Text | Speed-optimized GLM 5.3. |
-| `glm-5.3-flashx` | Text | Extra-fast GLM 5.3 for high throughput. |
-| `glm-5.3-flashx-legal` | Text | GLM 5.3 flash variant tuned for legal/document work. |
-
-### Doubao
-
-| Model ID | Category | Notes |
-| :--- | :--- | :--- |
-| `Doubao-lite-32k` | Text | Lightweight Doubao chat with 32k context. |
-| `Doubao-pro-32k` | Text | Higher-capability Doubao chat with 32k context. |
-| `doubao-seed-1-6-250615` | Text | Doubao Seed series general chat model. |
-
-### Image and retrieval
-
-| Model ID | Category | Notes |
-| :--- | :--- | :--- |
-| `z-image-turbo` | Image | Fast image generation model. |
-| `bge-m3` | Embeddings | Multilingual embedding model for search and retrieval. |
-| `bge-reranker-v2-m3` | Rerank | Reranks search results for higher relevance. |
+| Model ID | Use |
+| :--- | :--- |
+| `deepseek-r1` | Reasoning |
+| `deepseek-v4-pro` | Reasoning |
+| `kimi-k2.7-code` | Long-context code |
+| `z-image-turbo` | Image generation |
+| `qwen-Image` | Image generation |
+| `glm-4.5v` | Vision |
+| `bge-m3` | Embeddings |
+| `bge-reranker-v2-m3` | Rerank |
 
 ## Code example {#code-examples}
 
