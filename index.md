@@ -25,7 +25,7 @@ features:
     details: Base URL https://apinexusdev.com/v1. Authenticate with a Bearer API key from the dashboard.
 ---
 
-PineNexus is an OpenAI-compatible API gateway for overseas developers who want Chinese models without a separate account at each provider. DeepSeek, Qwen, Kimi, GLM, and Doubao are exposed as model IDs on one endpoint. We use official and backup upstreams with failover, and stay compatible with the OpenAI SDK so existing tools keep working. You only pass a model ID — not a channel or upstream name.
+PineNexus is an OpenAI-compatible API service for overseas developers who want Chinese models without setting up a separate account for each model family. DeepSeek, Qwen, Kimi, GLM, and Doubao are exposed as model IDs on one endpoint. It stays compatible with the OpenAI SDK so existing tools keep working. You only pass a model ID.
 
 ## Quick start {#quick-start}
 
@@ -65,7 +65,7 @@ The IDs below are examples. Chat, reasoning, code, and vision models use `POST /
 ### What to pick
 
 - **Reasoning:** `deepseek-r1` or `deepseek-v4-pro`
-- **Long-context code:** `kimi-k2.7-code` (262K context on the product homepage)
+- **Long-context code:** `kimi-k2.7-code` (256K context, 262,144 tokens)
 - **Image generation:** `z-image-turbo` or `qwen-Image`
 - **Vision:** `glm-4.5v`
 - **Embeddings and rerank:** `bge-m3` and `bge-reranker-v2-m3`

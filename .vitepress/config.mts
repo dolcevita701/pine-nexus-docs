@@ -5,7 +5,7 @@ export default defineConfig({
   base: '/pine-nexus-docs/',
   title: 'PineNexus API Docs',
   description:
-    'OpenAI-compatible API gateway for overseas developers. Use DeepSeek, Qwen, Kimi, and GLM with Stripe top-up and one API key.',
+    'OpenAI-compatible API service for overseas developers. Use DeepSeek, Qwen, Kimi, and GLM with Stripe top-up and one API key.',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
