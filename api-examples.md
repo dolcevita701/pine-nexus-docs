@@ -6,7 +6,7 @@ Header: `Authorization: Bearer YOUR_API_KEY`
 
 Replace `sk-your-api-key` with a key from **Tokens** in the [dashboard](https://apinexusdev.com). Replace the model string with any ID from the [supported models](/#supported-models) list. The chat samples below use `deepseek-v4-pro`. The same chat call works with `deepseek-v4-flash`, `qwen3.8-max`, `kimi-k3`, `kimi-k3.1-pro`, `glm-4.5`, and the other published chat IDs.
 
-The routes below were checked against the live gateway. A missing or invalid key returns `401` on a real path. Unknown paths return `404` (`Invalid URL`). A successful keyed response was not exercised here.
+The routes below were checked against the live endpoint. A missing or invalid key returns `401` on a real path. Unknown paths return `404` (`Invalid URL`). A successful keyed response was not exercised here.
 
 ## List models
 
@@ -77,7 +77,7 @@ curl https://apinexusdev.com/v1/chat/completions \
 
 ## Streaming
 
-Set `stream` to `true` on `POST /v1/chat/completions`. The gateway returns server-sent events in the usual OpenAI chunk format.
+Set `stream` to `true` on `POST /v1/chat/completions`. The endpoint returns server-sent events in the usual OpenAI chunk format.
 
 ```bash
 curl https://apinexusdev.com/v1/chat/completions \
@@ -169,14 +169,14 @@ curl https://apinexusdev.com/v1/embeddings \
   -H "Authorization: Bearer sk-your-api-key" \
   -d '{
     "model": "bge-m3",
-    "input": "PineNexus is an OpenAI-compatible API gateway."
+    "input": "PineNexus is an OpenAI-compatible API service."
   }'
 ```
 
 ```python
 embedding = client.embeddings.create(
     model="bge-m3",
-    input="PineNexus is an OpenAI-compatible API gateway.",
+    input="PineNexus is an OpenAI-compatible API service.",
 )
 
 print(len(embedding.data[0].embedding))
@@ -194,7 +194,7 @@ curl https://apinexusdev.com/v1/rerank \
     "model": "bge-reranker-v2-m3",
     "query": "How do I call Chinese models from overseas?",
     "documents": [
-      "PineNexus is an OpenAI-compatible API gateway for Chinese models.",
+      "PineNexus is an OpenAI-compatible API service for Chinese models.",
       "A recipe for sourdough bread."
     ]
   }'
@@ -213,7 +213,7 @@ response = requests.post(
         "model": "bge-reranker-v2-m3",
         "query": "How do I call Chinese models from overseas?",
         "documents": [
-            "PineNexus is an OpenAI-compatible API gateway for Chinese models.",
+            "PineNexus is an OpenAI-compatible API service for Chinese models.",
             "A recipe for sourdough bread.",
         ],
     },

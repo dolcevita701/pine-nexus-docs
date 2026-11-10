@@ -1,6 +1,6 @@
 # Client setup
 
-PineNexus is an OpenAI-compatible gateway. The same dashboard API key works for chat, reasoning, code, vision, image generation, embeddings, and rerank — not chat alone. Sign in, top up with Stripe, create a key in **Tokens**, then point your client at PineNexus and choose a [supported model ID](/#supported-models).
+PineNexus is an OpenAI-compatible API service. The same dashboard API key works for chat, reasoning, code, vision, image generation, embeddings, and rerank — not chat alone. Sign in, top up with Stripe, create a key in **Tokens**, then point your client at PineNexus and choose a [supported model ID](/#supported-models).
 
 | Client | What to set | Value |
 | :--- | :--- | :--- |
@@ -16,7 +16,7 @@ Copy-paste HTTP samples, including image, embeddings, rerank, and streaming, are
 1. Install [Cherry Studio](https://cherry-ai.com).
 2. Open **Settings → Model Provider** and add an OpenAI-compatible provider.
 3. Use these values:
-   - **Provider name:** `PineNexus`
+   - **Name:** `PineNexus`
    - **API host:** `https://apinexusdev.com`
    - **API key:** the key from the PineNexus dashboard
 4. Check the connection, fetch models, and pick an ID such as `deepseek-v4-flash`, `qwen3.8-max`, `kimi-k3`, or `glm-4.5`.
