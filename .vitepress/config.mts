@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: '/pine-nexus-docs/',
+  base: '/',
   title: 'PineNexus API Docs',
   description:
     'OpenAI-compatible API service for overseas developers. Use DeepSeek, Qwen, Kimi, and GLM with Stripe top-up and one API key.',
