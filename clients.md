@@ -56,6 +56,34 @@ const openai = new OpenAI({
 });
 ```
 
+## LangChain
+
+Install `langchain-openai` (Python) or `@langchain/openai` (JavaScript and TypeScript). Pass the PineNexus base URL, the dashboard API key, and a model ID such as `deepseek-v4-pro`.
+
+In Python, `ChatOpenAI` takes `base_url` and `api_key`. In JavaScript and TypeScript, set `baseURL` inside `configuration`.
+
+```python
+from langchain_openai import ChatOpenAI
+
+llm = ChatOpenAI(
+    base_url="https://apinexusdev.com/v1",
+    api_key="sk-your-api-key",
+    model="deepseek-v4-pro",
+)
+```
+
+```javascript
+import { ChatOpenAI } from "@langchain/openai";
+
+const llm = new ChatOpenAI({
+  apiKey: "sk-your-api-key",
+  model: "deepseek-v4-pro",
+  configuration: {
+    baseURL: "https://apinexusdev.com/v1",
+  },
+});
+```
+
 ## Other OpenAI-compatible tools
 
-LangChain, NextChat, and similar clients need the same three settings: base URL `https://apinexusdev.com/v1`, the dashboard API key, and a PineNexus model ID. In LangChain's OpenAI integration, set the base URL (`base_url` or `openai_api_base`, depending on the package version) to `https://apinexusdev.com/v1`.
+NextChat and similar clients need the same three settings: base URL `https://apinexusdev.com/v1`, the dashboard API key, and a PineNexus model ID.
