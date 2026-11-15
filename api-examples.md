@@ -4,7 +4,7 @@ Base URL: `https://apinexusdev.com/v1`
 
 Header: `Authorization: Bearer YOUR_API_KEY`
 
-Replace `sk-your-api-key` with a key from **Tokens** in the [dashboard](https://apinexusdev.com). Replace the model string with any ID from the [supported models](/#supported-models) list. The chat samples below use `deepseek-v4-pro`. The same chat call works with `deepseek-v4-flash`, `qwen3.8-max`, `kimi-k3`, `kimi-k3.1-pro`, `glm-4.5`, and the other published chat IDs.
+Replace `sk-your-api-key` with a key from **Tokens** in the [dashboard](https://apinexusdev.com). Replace the model string with any ID from the [supported models](/#supported-models) list. The chat samples below use `deepseek-v4-pro`. The same chat call works with `deepseek-v4-flash`, `qwen2.5-72b`, `qwen2.5-7b`, `qwen3.8-flash`, `qwen3.8-max`, `kimi-k3`, `kimi-k3.1-pro`, `glm-5.3`, `glm-5.3-flash`, and the other published chat IDs.
 
 The routes below were checked against the live endpoint. A missing or invalid key returns `401` on a real path. Unknown paths return `404` (`Invalid URL`). A successful keyed response was not exercised here.
 
@@ -226,5 +226,5 @@ print(response.json())
 
 - **Missing `/v1`.** SDK and Cursor base URLs must be `https://apinexusdev.com/v1`, not `https://apinexusdev.com`.
 - **Cherry Studio host includes `/v1`.** Cherry Studio appends the API path itself. Set the API host to `https://apinexusdev.com` with no `/v1` suffix. Details are on the [client setup](/clients) page.
-- **Model ID case.** IDs are case-sensitive. Use `qwen-Image`, `Doubao-lite-32k`, and `Doubao-pro-32k` exactly as listed.
+- **Model ID case.** IDs are case-sensitive. Use `qwen-Image` exactly as listed.
 - **Insufficient balance.** Requests fail if the account has no remaining balance. Top up with Stripe in the dashboard before you call the API.
