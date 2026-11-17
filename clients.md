@@ -19,7 +19,7 @@ Copy-paste HTTP samples, including image, embeddings, rerank, and streaming, are
    - **Name:** `PineNexus`
    - **API host:** `https://apinexusdev.com`
    - **API key:** the key from the PineNexus dashboard
-4. Check the connection, fetch models, and pick an ID such as `deepseek-v4-flash`, `qwen3.8-max`, `kimi-k3`, or `glm-4.5`.
+4. Check the connection, fetch models, and pick an ID such as `deepseek-v4-flash`, `qwen3.8-max`, `kimi-k3`, or `glm-5.3`.
 
 Leave `/v1` off the Cherry Studio host. Cherry Studio appends the chat path itself. If a build asks you to type the full request URL, use `https://apinexusdev.com/v1/chat/completions`.
 
@@ -30,7 +30,7 @@ These steps match the current Cursor **Settings → Models → API Keys** fields
 1. Open Cursor Settings (`Cmd+Shift+J` on macOS, `Ctrl+Shift+J` on Windows/Linux), go to **Models**, and expand **API Keys**.
 2. Paste your PineNexus API key into the **OpenAI API Key** field and enable **Use OpenAI API Key**.
 3. Enable **Override OpenAI Base URL** and set it to `https://apinexusdev.com/v1`. Include `/v1`, and do not append `/chat/completions`.
-4. Use **Add or search model** to add the exact PineNexus model ID, for example `deepseek-v4-pro` or `kimi-k2.7-code`. Enable the model and select it in the chat model picker.
+4. Use **Add or search model** to add the exact PineNexus model ID, for example `deepseek-v4-pro`, `kimi-k3`, or `kimi-k3.1-pro`. Enable the model and select it in the chat model picker.
 
 The override applies to OpenAI-format Chat and Agent requests. Cursor Tab, Auto, and cloud or background agents stay on Cursor's own backend and do not use this base URL. The model name Cursor sends must be one of the IDs on the [supported models](/#supported-models) list.
 

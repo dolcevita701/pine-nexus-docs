@@ -18,14 +18,14 @@ hero:
 
 features:
   - title: Chinese models, one key
-    details: Call DeepSeek, Qwen, Kimi, GLM, and Doubao with model IDs. The same key works across the catalog.
+    details: Call DeepSeek, Qwen, Kimi, and GLM with model IDs. The same key works across the catalog.
   - title: Stripe top-up
     details: Add balance with Stripe. Pay only for the tokens you use. There is no monthly fee.
   - title: OpenAI-compatible /v1
     details: Base URL https://apinexusdev.com/v1. Authenticate with a Bearer API key from the dashboard.
 ---
 
-PineNexus is an OpenAI-compatible API service for overseas developers who want Chinese models without setting up a separate account for each model family. DeepSeek, Qwen, Kimi, GLM, and Doubao are exposed as model IDs on one endpoint. It stays compatible with the OpenAI SDK so existing tools keep working. You only pass a model ID.
+PineNexus is an OpenAI-compatible API service for overseas developers who want Chinese models without setting up a separate account for each model family. DeepSeek, Qwen, Kimi, and GLM are exposed as model IDs on one endpoint. It stays compatible with the OpenAI SDK so existing tools keep working. You only pass a model ID.
 
 ## Quick start {#quick-start}
 
@@ -60,26 +60,34 @@ Client walkthroughs: [Cherry Studio, Cursor, and the OpenAI SDK](/clients). Copy
 
 PineNexus offers Chinese models through one OpenAI-compatible API. Pass a model ID on `https://apinexusdev.com/v1`. The full live catalog and current prices are on the [model square](https://apinexusdev.com/pricing).
 
-The IDs below are examples. Chat, reasoning, code, and vision models use `POST /v1/chat/completions`. Image models use `POST /v1/images/generations`. Embeddings use `POST /v1/embeddings`. Rerank uses `POST /v1/rerank`.
+These model IDs are the ones currently offered. Chat, reasoning, code, and vision models use `POST /v1/chat/completions`. Image models use `POST /v1/images/generations`. Embeddings use `POST /v1/embeddings`. Rerank uses `POST /v1/rerank`.
 
 ### What to pick
 
 - **Reasoning:** `deepseek-r1` or `deepseek-v4-pro`
-- **Long-context code:** `kimi-k2.7-code` (256K context, 262,144 tokens)
+- **Chat:** `kimi-k3` or `kimi-k3.1-pro`
 - **Image generation:** `z-image-turbo` or `qwen-Image`
 - **Vision:** `glm-4.5v`
 - **Embeddings and rerank:** `bge-m3` and `bge-reranker-v2-m3`
 
 | Model ID | Use |
 | :--- | :--- |
-| `deepseek-r1` | Reasoning |
-| `deepseek-v4-pro` | Reasoning |
-| `kimi-k2.7-code` | Long-context code |
-| `z-image-turbo` | Image generation |
-| `qwen-Image` | Image generation |
-| `glm-4.5v` | Vision |
 | `bge-m3` | Embeddings |
 | `bge-reranker-v2-m3` | Rerank |
+| `deepseek-r1` | Reasoning |
+| `deepseek-v4-flash` | Chat |
+| `deepseek-v4-pro` | Reasoning |
+| `glm-4.5v` | Vision |
+| `glm-5.3` | Chat |
+| `glm-5.3-flash` | Chat |
+| `kimi-k3` | Chat |
+| `kimi-k3.1-pro` | Chat |
+| `qwen-Image` | Image generation |
+| `qwen2.5-72b` | Chat |
+| `qwen2.5-7b` | Chat |
+| `qwen3.8-flash` | Chat |
+| `qwen3.8-max` | Chat |
+| `z-image-turbo` | Image generation |
 
 ## Code example {#code-examples}
 
@@ -92,7 +100,7 @@ client = OpenAI(
 )
 
 response = client.chat.completions.create(
-    model="deepseek-v4-pro",  # or deepseek-v4-flash, qwen3.8-max, kimi-k3, glm-4.5, ...
+    model="deepseek-v4-pro",  # or deepseek-v4-flash, qwen3.8-max, kimi-k3, glm-5.3, ...
     messages=[
         {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": "Hello!"},
