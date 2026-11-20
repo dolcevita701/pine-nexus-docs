@@ -2,7 +2,7 @@
 
 PineNexus is pay-as-you-go. There is no monthly subscription fee.
 
-1. Sign in at the [dashboard](https://apinexusdev.com). Public self-serve registration is currently closed, so you need an existing account.
+1. Sign in at the [dashboard](https://apinexusdev.com) with Google or GitHub.
 2. Add balance with Stripe.
 3. Usage is deducted from that balance as you call models.
 
