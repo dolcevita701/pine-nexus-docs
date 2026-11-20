@@ -31,7 +31,7 @@ PineNexus is an OpenAI-compatible API service for overseas developers who want C
 
 ### 1. Sign in, top up, and create a key
 
-1. Sign in at the [dashboard](https://apinexusdev.com). Public self-serve registration is currently closed, so you need an existing PineNexus account.
+1. Sign in at the [dashboard](https://apinexusdev.com) with Google or GitHub.
 2. Add balance with Stripe in the dashboard.
 3. Open **Tokens** and create an API key.
 4. Send that key as a Bearer token on every request. Do not put the key in client-side code that ships to a browser.
