@@ -68,7 +68,6 @@ These model IDs are the ones currently offered. Chat, reasoning, code, and visio
 - **Reasoning:** `deepseek-r1` or `deepseek-v4-pro`
 - **Chat:** `kimi-k3` or `kimi-k3.1-pro`
 - **Image generation:** `z-image-turbo` or `qwen-Image`
-- **Vision:** `glm-4.5v`
 - **Embeddings and rerank:** `bge-m3` and `bge-reranker-v2-m3`
 
 | Model ID | Use |
@@ -78,7 +77,6 @@ These model IDs are the ones currently offered. Chat, reasoning, code, and visio
 | `deepseek-r1` | Reasoning |
 | `deepseek-v4-flash` | Chat |
 | `deepseek-v4-pro` | Reasoning |
-| `glm-4.5v` | Vision |
 | `glm-5.3` | Chat |
 | `glm-5.3-flash` | Chat |
 | `kimi-k3` | Chat |
