@@ -109,7 +109,7 @@ response = client.chat.completions.create(
 print(response.choices[0].message.content)
 ```
 
-JavaScript, curl, streaming, vision, image generation, embeddings, and rerank samples are on the [API examples](/api-examples) page.
+JavaScript, curl, streaming, image generation, embeddings, and rerank samples are on the [API examples](/api-examples) page.
 
 ## Billing
 

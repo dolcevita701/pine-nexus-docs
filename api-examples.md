@@ -109,30 +109,6 @@ for chunk in stream:
         print(delta, end="", flush=True)
 ```
 
-## Vision
-
-`glm-4.5v` is the vision model on the model square. Send it through the same chat endpoint with an OpenAI-style image content block.
-
-```python
-response = client.chat.completions.create(
-    model="glm-4.5v",
-    messages=[
-        {
-            "role": "user",
-            "content": [
-                {"type": "text", "text": "Describe this image."},
-                {
-                    "type": "image_url",
-                    "image_url": {"url": "https://example.com/image.png"},
-                },
-            ],
-        }
-    ],
-)
-
-print(response.choices[0].message.content)
-```
-
 ## Image generation
 
 Image IDs on the model square are `z-image-turbo` and `qwen-Image`. Live probing confirmed `POST /v1/images/generations` (invalid or missing key returns `401`; a made-up path returns `404`). Pass the model ID exactly, including the capital `I` in `qwen-Image`.
