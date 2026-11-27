@@ -1,3 +1,9 @@
+---
+title: "PineNexus API examples"
+titleTemplate: false
+description: "Copy-paste PineNexus examples for chat, streaming, image generation, embeddings, and rerank, including bge-m3 and bge-reranker-v2-m3."
+---
+
 # API examples
 
 Base URL: `https://apinexusdev.com/v1`
@@ -204,3 +210,5 @@ print(response.json())
 - **Cherry Studio host includes `/v1`.** Cherry Studio appends the API path itself. Set the API host to `https://apinexusdev.com` with no `/v1` suffix. Details are on the [client setup](/clients) page.
 - **Model ID case.** IDs are case-sensitive. Use `qwen-Image` exactly as listed.
 - **Insufficient balance.** Requests fail if the account has no remaining balance. Top up with Stripe in the dashboard before you call the API.
+
+[Docs](https://docs.apinexusdev.com/) · [Model catalog](https://apinexusdev.com/pricing) · [Console](https://apinexusdev.com/)
