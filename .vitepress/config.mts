@@ -11,7 +11,7 @@ function canonicalUrl(relativePath: string): string | undefined {
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: '/pine-nexus-docs/',
+  base: '/',
   title: 'PineNexus API Docs',
   description:
     'How to set the PineNexus endpoint and API key, and how Cursor, SDKs, and Cherry Studio differ. Sign in with Google or GitHub — no Chinese phone number required. New accounts receive a $1 trial credit.',
