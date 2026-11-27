@@ -1,3 +1,9 @@
+---
+title: "PineNexus OpenAI-compatible setup and Base URL"
+titleTemplate: false
+description: "How to set the PineNexus endpoint and API key, and how Cursor, SDKs, and Cherry Studio differ."
+---
+
 # Client setup
 
 PineNexus is an OpenAI-compatible API service. The same dashboard API key works for chat, reasoning, code, vision, image generation, embeddings, and rerank — not chat alone. Sign in, top up with Stripe, create a key in **Tokens**, then point your client at PineNexus and choose a [supported model ID](/#supported-models).
@@ -59,3 +65,5 @@ const openai = new OpenAI({
 ## Other OpenAI-compatible tools
 
 LangChain, NextChat, and similar clients need the same three settings: base URL `https://apinexusdev.com/v1`, the dashboard API key, and a PineNexus model ID. In LangChain's OpenAI integration, set the base URL (`base_url` or `openai_api_base`, depending on the package version) to `https://apinexusdev.com/v1`.
+
+[Docs](https://docs.apinexusdev.com/) · [Model catalog](https://apinexusdev.com/pricing) · [Console](https://apinexusdev.com/)

@@ -1,5 +1,8 @@
 ---
 layout: home
+title: "PineNexus OpenAI-compatible setup and Base URL"
+titleTemplate: false
+description: "How to set the PineNexus endpoint and API key, and how Cursor, SDKs, and Cherry Studio differ. Sign in with Google or GitHub — no Chinese phone number required. New accounts receive a $1 trial credit."
 
 hero:
   name: "PineNexus"
@@ -114,3 +117,5 @@ JavaScript, curl, streaming, image generation, embeddings, and rerank samples ar
 ## Billing
 
 Top up in the [dashboard](https://apinexusdev.com) with Stripe. Usage is deducted from that balance. Per-model rates are listed on the [model square](https://apinexusdev.com/pricing). See [Billing](/billing) for a short overview.
+
+[Docs](https://docs.apinexusdev.com/) · [Model catalog](https://apinexusdev.com/pricing) · [Console](https://apinexusdev.com/)
